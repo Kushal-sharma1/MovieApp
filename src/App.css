@@ -27,6 +27,57 @@
 .App-link {
   color: #61dafb;
 }
+.banner-card{
+  height:80vh;
+ 
+}
+.banner-img{
+  height:100%;
+  width: 100%;
+}
+.banner-title{
+  position:absolute;
+  top: 75%;
+  left:5%;
+  color:white;
+
+}
+.banner-text{
+  position:absolute;
+  top: 85%;
+  left:5%;
+  color:white;
+
+}
+.movie-list{
+  display:flex;
+ justify-content: space-evenly;
+ margin :2rem;
+  flex-wrap: wrap;
+}
+.movie-card{
+  height:50vh;
+  width:40vh;
+
+}
+.movie-img{
+  height:100%;
+   width:100%;
+}
+.movie-title{
+  position:absolute;
+  top:1rem;
+  color:white;
+}
+.wrapper-button{
+  display:flex;
+  justify-content: center;
+}
+.movie-button{
+  position:absolute;
+  top:75%;
+  
+}
 
 @keyframes App-logo-spin {
   from {
