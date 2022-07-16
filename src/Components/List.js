@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {API_KEY} from '../secret'
+import {API_KEY} from '../secrets'
 export default class List extends Component {
    constructor(){
     super();
