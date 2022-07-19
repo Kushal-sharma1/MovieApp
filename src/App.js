@@ -3,15 +3,26 @@ import './App.css';
 import Navbar from './Components/navbar'
 import Banner from './Components/Banner'
 import List from './Components/List'
-import Favourite from './Components/Favourite';
+import Favourite from './Components/Favourite'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
 function App() {
   return (
     <>
-    <Navbar/>
-    {/* <Banner/>
-    <List/> */}
-    <Favourite/>
-    </>
+    
+    <BrowserRouter>
+       <Navbar/>
+       <Routes>
+          <Route path='/' element ={<List/> }/> 
+          <Route path='/fav' element ={<Favourite/>}/>
+       </Routes>
+     {/* <Banner/>
+   */}
+    
+    </BrowserRouter>
+ 
+   
+    </>   
+
     
   );
 }
