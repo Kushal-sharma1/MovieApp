@@ -17,11 +17,11 @@ constructor(){
     27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'}
  
  
-   let res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
-  
+  //  let res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+  let results= JSON.parse(localStorage.getItem("movies"));
   let genArr =[];
  
-res.data.results.map((movieobj)=>{
+results.map((movieobj)=>{
     if(!genArr.includes(genereId[movieobj.genre_ids[0]])){
        genArr.push(genereId[movieobj.genre_ids[0]]);
     }
@@ -32,7 +32,7 @@ res.data.results.map((movieobj)=>{
   console.log(genArr);
    this.setState(
     {
-      movies:[...res.data.results],
+      movies:[...results],
       genere:[...genArr]
     }
   )
