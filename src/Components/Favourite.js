@@ -9,7 +9,9 @@ constructor(){
     movies :[],
     genere:[],
     currGen:"All genere",
-    currText:""
+    currText:"",
+    limit:5,
+    currpage:1,
   }
 }
 handleText =(e)=>{
@@ -29,6 +31,52 @@ handleclick=(ele)=>{
   )
  
   }
+
+  sortPopularityAsc=()=>{
+      let allMovies = this.state.movies;
+      allMovies.sort((objA,objB)=>{
+        return objA.popularity-objB.popularity;
+      })
+      
+    this.setState({
+      movies:[...allMovies]
+    })
+
+  }
+  sortPopularityDsec=()=>{
+    let allMovies = this.state.movies;
+    allMovies.sort((objA,objB)=>{
+      return objB.popularity-objA.popularity;
+    })
+    
+  this.setState({
+    movies:[...allMovies]
+  })
+
+}
+sortRatingAsc=()=>{
+  let allMovies = this.state.movies;
+  allMovies.sort((objA,objB)=>{
+    return objA.vote_average-objB.vote_average;
+  })
+  
+this.setState({
+  movies:[...allMovies]
+})
+
+}
+sortRatingDsec=()=>{
+  let allMovies = this.state.movies;
+  allMovies.sort((objA,objB)=>{
+    return objB.vote_average-objA.vote_average;
+  })
+  
+this.setState({
+  movies:[...allMovies]
+})
+
+}
+
  async componentDidMount(){
   let genereId={28:'Action',12:'Adventure',16:'Animation',35:'Comedy',80:'Crime',99:'Documentary',18:'Drama',10751:'Family',14:'Fantasy',36:'History',
     27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'}
@@ -119,8 +167,8 @@ results.map((movieobj)=>{
                             <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Genre</th>
-                            <th scope="col">Popularity</th>
-                            <th scope="col">Rating</th>
+                            <th scope="col"><i class="fa-solid fa-angle-up" onClick={this.sortPopularityAsc}></i>Popularity<i class="fa-solid fa-angle-down" onClick={this.sortPopularityDsec}></i></th>
+                            <th scope="col"><i class="fa-solid fa-angle-up" onClick={this.sortRatingAsc}></i>Rating<i class="fa-solid fa-angle-down"onClick={this.sortRatingDsec}></i></th>
                             <th scope="col"></th>
                             </tr>
                         </thead>
@@ -153,6 +201,20 @@ results.map((movieobj)=>{
             </div>
             </div>
         </div>
+
+              <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
       
       </>
     )
