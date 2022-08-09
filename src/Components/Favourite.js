@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import {API_KEY} from '../secrets'
+
 export default class Favourite extends Component {
 
 constructor(){
@@ -82,7 +81,6 @@ this.setState({
     27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'}
  
  
-  //  let res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
   let results= JSON.parse(localStorage.getItem("movies"));
   let genArr =[];
  
@@ -160,7 +158,7 @@ results.map((movieobj)=>{
             <div class="col">
                 <div class="row"> 
                      <input type={'text'} placeholder='Search' className='col-8' value={this.state.currText} onChange={this.handleText}></input>
-                     <input type ={'number'} placeholder='5' className='col-4'></input>
+                     {/* <input type ={'number'} placeholder='5' className='col-4'></input> */}
                 </div>
                         <table class="table">
                         <thead>
@@ -208,8 +206,6 @@ results.map((movieobj)=>{
                   <a class="page-link">Previous</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                   <a class="page-link" href="#">Next</a>
                 </li>

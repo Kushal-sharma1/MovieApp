@@ -78,7 +78,9 @@
   top:75%;
   
 }
-
+.darkmode{
+  color :black;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

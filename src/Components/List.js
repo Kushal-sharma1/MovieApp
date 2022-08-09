@@ -86,7 +86,7 @@ export default class List extends Component {
   async  componentDidMount(){
      
     let res  = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currpage}`);
-    console.log(res.data);
+   
     let oldlocalStorage = JSON.parse(localStorage.getItem("movies")) || [];
     let fmdata = oldlocalStorage.map((movie)=>{
       return movie.id;
@@ -111,7 +111,7 @@ export default class List extends Component {
         ):
         (
         <div>
-        <h1 className='text-center'><strong>Trending</strong></h1>
+        <h1 className='text-center' ><strong>Trending</strong></h1>
         <div className='movie-list'>
        
         { this.state.movies.map((movieObj)=> (
